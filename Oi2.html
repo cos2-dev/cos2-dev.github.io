@@ -1,1 +1,36 @@
+<body>
+   <form>
+     <div id='info'>
+      <label>Nome</label>
+      <input type='text' id='nome' placeholder='Digite seu nome'>
 
+      <label>Peso</label>
+      <input type='number' min='0' step='5' id='peso' placeholder='Ex: 60'>
+
+      <label>Altura</label>
+      <input type='number' min='0' step='5' id='altura' placeholder='Ex: 180'>
+
+      <button type='button' onClick='calcular()'>Calcular</button>
+
+      <label>IMC</label>
+      <textarea id='resultado' readonly rows='3'></textarea>
+     </div>  
+   </form>
+   <script>
+     function calcular() {
+        let nome = document.getElementById('nome').value.trim()
+        let peso = document.getElementById('peso').value
+        let altura = document.getElementById('altura').value
+
+       if(nome !== ' ' && peso > 0 && altura > 0){
+          let alturaMetros = altura / 100;
+          let imc = peso / (alturaMetros * alturaMetros);
+          let imcFormatado = imc.toFixed(2);
+         
+        document.getElementById('resultado').value = 'Olá, ' + nome + '. O seu IMC é de ' + imcFormatado
+       } else {
+         document.getElementById('resultado').value = 'Preencha todos os campos corretamente.'
+       }
+     }
+   </script>
+</body>
