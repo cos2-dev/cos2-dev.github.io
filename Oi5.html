@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Cadastro</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form { max-width: 500px; }
+    .error { color: red; font-size: 0.9em; }
+    .success { color: green; font-size: 1em; margin-top: 20px; }
+    .field { margin-bottom: 15px; }
+    label { display: block; margin-bottom: 5px; }
+    input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+  </style>
+</head>
+<body>
+  <h1>Cadastro</h1>
+  <form id="cadastroForm" novalidate>
+    <div class="field">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" />
+      <div class="error" id="erro-nome"></div>
+    </div>
+    <div class="field">
+      <label for="nascimento">Data de Nascimento:</label>
+      <input type="date" id="nascimento" name="nascimento" />
+      <div class="error" id="erro-nascimento"></div>
+    </div>
+    <div class="field">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" />
+      <div class="error" id="erro-email"></div>
+    </div>
+    <div class="field">
+      <label for="telefone">Telefone (DDD + número):</label>
+      <input type="text" id="telefone" name="telefone" placeholder="Ex: 11 912345678" />
+      <div class="error" id="erro-telefone"></div>
+    </div>
+    <div class="field">
+      <label>Atividades Extracurriculares (máx 3):</label>
+      <div>
+        <input type="checkbox" id="atividade1" name="atividades" value="Esportes" />
+        <label for="atividade1">Esportes</label>
+      </div>
+      <div>
+        <input type="checkbox" id="atividade2" name="atividades" value="Música" />
+        <label for="atividade2">Música</label>
+      </div>
+      <div>
+        <input type="checkbox" id="atividade3" name="atividades" value="Artes" />
+        <label for="atividade3">Artes</label>
+      </div>
+      <div>
+        <input type="checkbox" id="atividade4" name="atividades" value="Ciência" />
+        <label for="atividade4">Ciência</label>
+      </div>
+      <div class="error" id="erro-atividades"></div>
+    </div>
+    <div class="field">
+      <input type="checkbox" id="aceito" name="aceito" />
+      <label for="aceito">Aceito os termos</label>
+    </div>
+    <button type="submit">Enviar Formulário</button>
+  </form>
+
+  <div class="success" id="mensagem-sucesso" style="display:none;">
+    Cadastro realizado com sucesso!
+  </div>
+
+  <script>
+    document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // limpar mensagens anteriores
+      const erros = document.querySelectorAll('.error');
+      erros.forEach(e => e.textContent = '');
+
+      let hasError = false;
+
+      // Validação Nome
+      const nome = document.getElementById('nome').value.trim();
+      if (!nome) {
+        document.getElementById('erro-nome').textContent = 'Nome é obrigatório.';
+        hasError = true;
+      }
+
+      // Validação Nascimento
+      const nascimento = document.getElementById('nascimento').value;
+      if (!nascimento) {
+        document.getElementById('erro-nascimento').textContent = 'Data de nascimento é obrigatória.';
+        hasError = true;
+      } else {
+        const data = new Date(nascimento);
+        if (isNaN(data.getTime())) {
+          document.getElementById('erro-nascimento').textContent = 'Data de nascimento inválida.';
+          hasError = true;
+        } else {
+          const hoje = new Date();
+          if (data >= hoje) {
+            document.getElementById('erro-nascimento').textContent = 'Data de nascimento deve ser no passado.';
+            hasError = true;
+          }
+        }
+      }
+
+      // Validação E-mail
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        document.getElementById('erro-email').textContent = 'E-mail é obrigatório.';
+        hasError = true;
+      } else {
+        // regra básica, pode melhorar
+        if (!email.includes('@') || !email.includes('.')) {
+          document.getElementById('erro-email').textContent = 'E-mail deve conter "@" e ".".';
+          hasError = true;
+        }
+      }
+
+      // Validação Telefone / DDD
+      const telefone = document.getElementById('telefone').value.trim();
+      if (!telefone) {
+        document.getElementById('erro-telefone').textContent = 'Telefone é obrigatório.';
+        hasError = true;
+      } else {
+        // extrair DDD — assumindo formato “XX NNNNNNNNN” ou “XXNNNNNNNN”
+        const partes = telefone.split(/\s+/);
+        let ddd;
+        if (partes.length === 2) {
+          ddd = partes[0];
+        } else {
+          // sem espaço, pega os dois primeiros dígitos
+          ddd = telefone.substring(0, 2);
+        }
+        // DDDs válidos no Brasil (segundo tabela) :contentReference[oaicite:0]{index=0}
+        const dddsValidos = [11,12,13,14,15,16,17,18,19,21,22,24,27,28,31,32,33,34,35,37,38,41,42,43,44,45,46,51,53,54,55,61,62,64,65,66,67,82,71,73,74,75,77,85,88,98,99,83,81,87,86,89,84,79,68,96,92,97,91,93,94,69,95,63];
+        const dddNum = parseInt(ddd, 10);
+        if (!dddsValidos.includes(dddNum)) {
+          document.getElementById('erro-telefone').textContent = 'DDD inválido para o Brasil.';
+          hasError = true;
+        }
+        // Poderia validar também se o número restante tem tamanho correto etc
+      }
+
+      // Validação atividades extracurriculares
+      const atividades = Array.from(document.querySelectorAll('input[name="atividades"]:checked'));
+      if (atividades.length > 3) {
+        document.getElementById('erro-atividades').textContent = 'Você só pode selecionar no máximo 3 atividades.';
+        hasError = true;
+      }
+
+      // Se tiver erro, não envia
+      if (hasError) {
+        document.getElementById('mensagem-sucesso').style.display = 'none';
+        return;
+      }
+
+      // Se chegou aqui, deu certo
+      document.getElementById('mensagem-sucesso').style.display = 'block';
+      // opcional: você pode limpar o formulário
+      // document.getElementById('cadastroForm').reset();
+    });
+  </script>
+</body>
+</html>
 
