@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Resumo dos Gastos</title>
+<style>
+  body { font-family: Arial; margin: 20px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+  th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+  th { background: #eee; }
+  .total { font-weight: bold; margin-top: 20px; }
+</style>
+</head>
+<body>
+
+<h1>Resumo dos Gastos</h1>
+
+<div id="resumoCategorias"></div>
+<div class="total" id="totalGeral"></div>
+
+<script>
+  const dados = JSON.parse(localStorage.getItem("gastos")) || [];
+
+  const resumo = {};
+
+  dados.forEach(g => {
+    if (!resumo[g.categoria]) resumo[g.categoria] = 0;
+    resumo[g.categoria] += g.valor;
+  });
+
+  let html = "<h3>Total por Categoria:</h3><table><thead><tr><th>Categoria</th><th>Total (R$)</th></tr></thead><tbody>";
+
+  Object.keys(resumo).forEach(cat => {
+    html += `<tr><td>${cat}</td><td>R$ ${resumo[cat].toFixed(2)}</td></tr>`;
+  });
+
+  html += "</tbody></table>";
+
+  document.getElementById("resumoCategorias").innerHTML = html;
+
+  const total = dados.reduce((soma, g) => soma + g.valor, 0);
+  document.getElementById("totalGeral").innerText = `Total Geral: R$ ${total.toFixed(2)}`;
+</script>
+
+</body>
+</html>
 
