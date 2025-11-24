@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Robotron - Troca de Cores</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        #container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        img {
+            width: 250px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            background: #00b4ff;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0088cc;
+        }
+
+        .nav-btn {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Robotron - Troca de Cores</h1>
+
+    <div id="container">
+        <button class="nav-btn" onclick="voltarCor()">&lt;&lt;</button>
+        <button onclick="avancarCor()">Trocar Cor</button>
+        <button class="nav-btn" onclick="avancarCor()">&gt;&gt;</button>
+
+        <br><br>
+
+        <img id="robotronImg" src="img/robotron-azul.png" alt="Robotron">
+    </div>
+
+    <script>
+        // Lista de cores em ordem fixa (sequencial)
+        const cores = ["azul", "amarelo", "preto", "vermelho", "branco"];
+        let indice = 0;
+
+        function atualizarImagem() {
+            document.getElementById("robotronImg")
+                .src = `img/robotron-${cores[indice]}.png`;
+        }
+
+        function avancarCor() {
+            indice = (indice + 1) % cores.length; // Vai para a próxima cor
+            atualizarImagem();
+        }
+
+        function voltarCor() {
+            indice = (indice - 1 + cores.length) % cores.length; // Volta para a cor anterior
+            atualizarImagem();
+        }
+    </script>
+
+</body>
+</html>
+
 
