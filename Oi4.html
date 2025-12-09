@@ -1,1 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aoi Sushi House</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Aoi Sushi House</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cardapio">Cardápio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Nós</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reservas">Reservas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                <li class="nav-item"><a class="nav-link" href="#delivery">Pedidos Online</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- INÍCIO -->
+<section id="inicio" class="mt-5 pt-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Bem-vindo ao Aoi Sushi House</h1>
+        <p class="lead">A verdadeira experiência da culinária japonesa em um ambiente moderno e acolhedor.</p>
+        <img src="C:\Users\i2025307914\Documents\prova final\8b0ea88d-8bd5-4824-b31e-c8ae6981d875.png" class="img-fluid rounded shadow">
+    </div>
+
+    <div class="container mt-4">
+        <h3 class="text-center">Horários de Funcionamento</h3>
+        <ul class="list-group mx-auto" style="max-width:400px;">
+            <li class="list-group-item">Segunda – 18h às 23h</li>
+            <li class="list-group-item">Terça – 18h às 23h</li>
+            <li class="list-group-item">Quarta – 18h às 23h</li>
+            <li class="list-group-item">Quinta – 18h às 23h30</li>
+            <li class="list-group-item">Sexta – 18h às 00h</li>
+            <li class="list-group-item">Sábado – 12h às 00h</li>
+            <li class="list-group-item">Domingo – 12h às 22h</li>
+        </ul>
+    </div>
+</section>
+
+<hr>
+
+<!-- CARDÁPIO -->
+<section id="cardapio" class="container py-5">
+    <h2 class="text-center mb-4">Cardápio</h2>
+
+    <!-- Entradas -->
+    <h4>Entradas</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://source.unsplash.com/400x300/?gyoza" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Gyoza</h5>
+                    <p class="card-text">Pastéis japoneses recheados com carne e legumes.</p>
+                    <p class="fw-bold">R$ 22,00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://source.unsplash.com/400x300/?sunomono" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Sunomono</h5>
+                    <p class="card-text">Salada de pepino japonês com molho agridoce.</p>
+                    <p class="fw-bold">R$ 18,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pratos Principais -->
+    <h4 class="mt-4">Pratos Principais</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://source.unsplash.com/400x300/?sushi" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Combo Sushi Especial</h5>
+                    <p class="card-text">20 peças selecionadas pelo chef.</p>
+                    <p class="fw-bold">R$ 59,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sobremesas -->
+    <h4 class="mt-4">Sobremesas</h4>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="https://source.unsplash.com/400x300/?dessert,japan" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Tempurá de Sorvete</h5>
+                    <p class="card-text">Sorvete empanado, crocante e delicioso.</p>
+                    <p class="fw-bold">R$ 25,00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Especiais -->
+    <h4 class="mt-4 text-danger">Especiais do Dia</h4>
+    <p>• Prato especial de salmão – R$ 42,00 (somente às sextas)</p>
+    <p>• Combinado Aoi Premium – R$ 89,00 (fins de semana)</p>
+</section>
+
+<hr>
+
+<!-- SOBRE NÓS -->
+<section id="sobre" class="container py-5">
+    <h2 class="text-center mb-4">Sobre Nós</h2>
+
+    <p>Fundado em 2025, o Aoi Sushi House nasceu com a missão de oferecer a mais autêntica gastronomia japonesa da cidade.</p>
+
+    <h4>Nosso Chef</h4>
+    <p>Chef Kenji Yamamoto – 20 anos de experiência, formado em culinária japonesa tradicional em Tóquio.</p>
+
+    <h4>Prêmios</h4>
+    <ul>
+        <li>Melhor Restaurante Japonês da Cidade – 2024</li>
+        <li>Certificado de Excelência Gastronômica</li>
+    </ul>
+</section>
+
+<hr>
+
+<!-- RESERVAS -->
+<section id="reservas" class="container py-5">
+    <h2 class="text-center mb-4">Reservas</h2>
+
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Data</label>
+            <input type="date" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label">Horário</label>
+            <input type="time" class="form-control" required>
+        </div>
+        <div class="col-12">
+            <label class="form-label">Número de Pessoas</label>
+            <input type="number" class="form-control" required min="1">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Contato</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary mt-3">Enviar Reserva</button>
+        </div>
+    </form>
+
+    <h4 class="mt-4">Política de Reservas</h4>
+    <p>Cancelamentos devem ser feitos com 2 horas de antecedência. Reservas são confirmadas por e-mail.</p>
+</section>
+
+<hr>
+
+<!-- GALERIA -->
+<section id="galeria" class="container py-5">
+    <h2 class="text-center mb-4">Galeria</h2>
+
+    <div class="row">
+        <div class="col-md-4"><img src="https://source.unsplash.com/400x300/?ramen" class="img-fluid rounded mb-3"></div>
+        <div class="col-md-4"><img src="https://source.unsplash.com/400x300/?sashimi" class="img-fluid rounded mb-3"></div>
+        <div class="col-md-4"><img src="https://source.unsplash.com/400x300/?japanese,restaurant" class="img-fluid rounded mb-3"></div>
+    </div>
+
+    <h4 class="mt-4">Avaliações de Clientes</h4>
+    <blockquote class="blockquote">"Melhor sushi da cidade! Atendimento impecável." – Carla M.</blockquote>
+    <blockquote class="blockquote">"Ambiente lindo e comida maravilhosa." – Rodrigo A.</blockquote>
+</section>
+
+<hr>
+
+<!-- CONTATO -->
+<section id="contato" class="container py-5">
+    <h2 class="text-center mb-4">Fale Conosco</h2>
+
+    <p><strong>Endereço:</strong> Rua Sakura, 100 – Centro</p>
+    <p><strong>Telefone:</strong> (11) 99999-0000</p>
+    <p><strong>E-mail:</strong> contato@aoisushi.com</p>
+
+    <h4>Mapa</h4>
+    <div class="mb-3">
+        <img src="https://source.unsplash.com/900x300/?map" class="img-fluid rounded">
+    </div>
+
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label class="form-label">Seu nome</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Seu e-mail</label>
+            <input type="email" class="form-control">
+        </div>
+        <div class="col-12">
+            <label class="form-label">Mensagem</label>
+            <textarea class="form-control" rows="4"></textarea>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-success mt-2">Enviar</button>
+        </div>
+    </form>
+</section>
+
+<hr>
+
+<!-- DELIVERY -->
+<section id="delivery" class="container py-5">
+    <h2 class="text-center mb-4">Pedidos Online</h2>
+
+    <p>Faça pedidos para retirada ou entrega diretamente pelo nosso sistema.</p>
+
+    <h4>Áreas de Entrega</h4>
+    <ul>
+        <li>Centro – 30 min</li>
+        <li>Bairro Norte – 45 min</li>
+        <li>Zona Sul – 50 min</li>
+    </ul>
+</section>
+
+<hr>
+
+<!-- REDES SOCIAIS -->
+<section class="container text-center py-4">
+    <h4>Siga-nos</h4>
+    <a href="#" class="btn btn-outline-primary m-1">Facebook</a>
+    <a href="#" class="btn btn-outline-danger m-1">Instagram</a>
+    <a href="#" class="btn btn-outline-info m-1">Twitter</a>
+</section>
+
+<!-- PROMOÇÕES -->
+<section class="container py-5">
+    <h4 class="text-danger">Promoções Especiais</h4>
+    <p>• Desconto de 10% em pedidos acima de R$120.</p>
+    <p>• Programa de fidelidade: a cada 10 refeições, ganhe 1 gratuita.</p>
+</section>
+
+<!-- AVALIAÇÕES ONLINE -->
+<section class="container pb-5">
+    <h4>Avaliações Online</h4>
+    <a href="#" class="btn btn-warning m-1">Yelp</a>
+    <a href="#" class="btn btn-success m-1">TripAdvisor</a>
+</section>
+
+<footer class="text-center p-3 bg-dark text-light">
+    © 2025 Aoi Sushi House – Todos os direitos reservados.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
 
